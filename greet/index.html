@@ -1,0 +1,18 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button onclick="greet()">greet</button>
+    <p id="message"></p>
+    <script>
+      function greet() {
+        let messageParagraph = document.getElementById('message');
+        messageParagraph.innerText = 'Hello';
+        console.log(messageParagraph);
+      }
+    </script>
+  </body>
+</html>

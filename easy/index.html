@@ -6,11 +6,13 @@
     <title>Document</title>
   </head>
   <body>
-    <button id="greet();">greet</button>
-    <p id="message"></p>
+    <p>Name<input type="text" id="nameField""/></p>
+    <p><input id="greenBtn" type="button" value="submit" onclick="greet()"/></p>
     <script>
       function greet() {
-        let messageParagraph = document.getElementById('message');
+        let nameFeild = document.getElementById("nameField");
+        let name = nameField.value;
+        alert('Hello, ' + name);
       }
     </script>
   </body>
