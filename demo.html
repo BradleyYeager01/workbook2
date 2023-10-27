@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <main>
+      <h3 id="titleHeading">Do not click</h3>
+      <p id="detailsParagraph">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus incidunt labore laudantium, aut voluptatibus
+        similique atque nostrum, nesciunt unde velit adipisci repellat voluptas doloremque. Sed in, deserunt deleniti
+        non nesciunt itaque consequuntur ipsa nam necessitatibus voluptate, nostrum quasi quo. Nisi quidem, minus eius
+        natus sequi laudantium eum quia quos suscipit.
+      </p>
+    </main>
+    <script>
+      //get html elements into variables
+      const titleHeading = document.getElementById("titleHeading");
+      const detailsParagraph = document.getElementById("detailsParagraph");
+
+      //write functions to handle events
+      function toggleText() {
+        let display = detailsParagraph.style.display;
+        if (display == "none") {
+          detailsParagraph.style.display = "block";
+        } else {
+          detailsParagraph.style.display = "none";
+        }
+        titleHeading.onclick = toggleText;
+      }
+
+      //wire-up functions to events
+      titleHeading.onclick = toggleText;
+    </script>
+  </body>
+</html>
