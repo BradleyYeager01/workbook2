@@ -18,7 +18,25 @@ let estimatedCostBtn = document.getElementById("estimatedCostBtn");
 
 function estimateCost() {
     // cost per day * number of days
-    let cost = 29.99 * numberOfDaysTextbox.value;
-        
-    console.log(cost); 
+    let days = Number(numberOfDaysTextbox.value);
+    let costPerDay = 29.99;
+    let carRentalCost = days * costPerDay;
+    let optionsCost = 0;
+    let totalCost = 0;
+    let under25Cost = 0;
+
+    if (tollTagCheckbox.checked) {
+        optionsCost += 3.95 * days;
+    }
+    if (gpsCheckbox.checked) {
+        optionsCost += 2.95 * days;
+    }
+    if (roadSideAssistanceCheckbox.checked) {
+        optionsCost += 2.95 * days;
+    }
+    if (under25yesRadio.checked) {
+        under25Cost = carRentalCost * .3;
+    }
+    totalCost = carRentalCost + optionsCost + under25Cost;
+    console.log(carRentalCost, optionsCost, under25Cost, totalCost);
 }
