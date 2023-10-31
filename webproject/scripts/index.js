@@ -14,6 +14,12 @@ let over25noRadio = document.getElementById("over25noRadio");
 //button
 let estimatedCostBtn = document.getElementById("estimatedCostBtn");
 
+// new 
+let carRentalcostParagraph = document.getElementById("carRentalcostParagraph");
+let optionsCostParagraph = document.getElementById("optionsCostParagraph");
+let under25SurchargeParagraph = document.getElementById("under25SurchargeParagraph");
+let totalDueParagraph = document.getElementById("totalDueParagraph");
+
 //function time
 
 function estimateCost() {
@@ -24,6 +30,7 @@ function estimateCost() {
     let optionsCost = 0;
     let totalCost = 0;
     let under25Cost = 0;
+
 
     if (tollTagCheckbox.checked) {
         optionsCost += 3.95 * days;
@@ -38,5 +45,9 @@ function estimateCost() {
         under25Cost = carRentalCost * .3;
     }
     totalCost = carRentalCost + optionsCost + under25Cost;
-    console.log(carRentalCost, optionsCost, under25Cost, totalCost);
+    carRentalcostParagraph.innerText = carRentalCost;
+    optionsCostParagraph.innerText = optionsCost;
+    under25SurchargeParagraph.innerText = under25Cost;
+    totalDueParagraph.innerText = totalCost;
 }
+estimatedCostBtn.onclick = estimateCost;
