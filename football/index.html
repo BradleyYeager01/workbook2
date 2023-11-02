@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <main>
+      <form>
+        <select id="footBall">
+          <option value="">Choose Team</option>
+        </select>
+      </form>
+
+      <br />
+      <button id="teamInfoBtn">learn more</button>
+      <p id="messageParagraph"></p>
+    </main>
+    <script>
+      let teams = [
+        { code: "DAL", name: "Dallas Cowboys", plays: "Arlington, TX" },
+        { code: "DEN", name: "Denver Broncos", plays: "Denver, CO" },
+        { code: "HOU", name: "Houston Texans", plays: "Houston, TX" },
+        { code: "KAN", name: "Kansas City Chiefs", plays: "Kansas City, MO" },
+      ];
+      // get all required elements off the page
+      const footBall = document.getElementById("footBall");
+      const teamInfoBtn = document.getElementById("teamInfoBtn");
+      const messageParagraph = document.getElementById("messageParagraph");
+
+      // write a function to load the team options
+      function loadFootBallList() {
+        for (const footBallTeam of teams) {
+          let option = document.createElement("option");
+          option.textContent = footBallTeam.name;
+          option.value = footBallTeam.code;
+          footBall.appendChild(option);
+        }
+      }
+      // function to handle the button press
+      function loadTeamInformation() {
+
+        let selectedValue = footBall.value;
+      
+        if (selectedValue) {
+          for (const footBallTeam of teams) {
+            if (footBallTeam.code == selectedValue) {
+              let message = `You selected the ${footBallTeam.name} (${footBallTeam.code}) who play in ${footBallTeam.plays}`;
+              messageParagraph.innerText = message;
+
+            }
+          }
+        } else {
+          alert("you have not selected a team");
+        }
+      }
+      // wire up event functions 
+      loadFootBallList();
+      teamInfoBtn.onclick = loadTeamInformation;
+    </script>
+  </body>
+</html>
